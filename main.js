@@ -29,7 +29,49 @@ var { randomWord } = require('./random-words');
 var { getNextBusiness } = require('./businesses');
 
 async function genData() {
-  var employee = [faker.name.firstName(), faker.name.lastName()];
+  var nameArray = [
+    ['John', 'Egbert'],
+    ['June', 'Egbert'],
+    ['Rose', 'Lalonde'],
+    ['Dave', 'Strider'],
+    ['Jade', 'Harley'],
+    ['Aradia', 'Megido'],
+    ['Tavros', 'Nitram'],
+    ['Sollux', 'Captor'],
+    ['Karkat', 'Vantas'],
+    ['Nepeta', 'Leijon'],
+    ['Kanaya', 'Maryam'],
+    ['Terezi', 'Pyrope'],
+    ['Vriska', 'Serket'],
+    ['Equius', 'Zahhak'],
+    ['Gamzee', 'Makara'],
+    ['Eridan', 'Ampora'],
+    ['Feferi', 'Peixes'],
+    ['Jane', 'Crocker'],
+    ['Roxy', 'Lalonde'],
+    ['Dirk', 'Strider'],
+    ['Jake', 'English'],
+    ['Damara', 'Megido'],
+    ['Rufioh', 'Nitram'],
+    ['Kankri', 'Vantas'],
+    ['Meulin', 'Leijon'],
+    ['Porrim', 'Maryam'],
+    ['Latula', 'Pyrope'],
+    ['Aranea', 'Serket'],
+    ['Horuss', 'Zahhak'],
+    ['Kurloz', 'Makara'],
+    ['Cronos', 'Ampora'],
+    ['Meenah', 'Peixes'],
+    ['Callie', 'Ohpeee'],
+    ['Lord', 'English'],
+    ['Doc', 'Scratch'],
+    ['Harryanderson', 'Egbert'],
+    ['Vriska', 'Maryamlalonde'],
+    ['Tavros', 'Crocker'],
+    ['Yiffanylongstocking', 'Lalondeharley']
+  ];
+  var randomNumber = Math.floor(Math.random() * nameArray.length);
+  var employee = nameArray[randomNumber];
   var emNum = parseInt(('' + Math.random()).substring(2, 11), 10);
   var { name, email, addr, city, zip } = await getNextBusiness(randomWord);
   var d = [name, email, emNum, addr, city, zip, ...employee];
